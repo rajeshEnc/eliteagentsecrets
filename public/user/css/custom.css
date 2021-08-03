@@ -1,0 +1,922 @@
+/*=====================================================================
+@Developed By: Ayan Paul (ANDREW-THEME)
+=====================================================================*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@font-face {
+    font-family: "JMH Typewriter";
+    src: url("../fonts/JMHTypewriter-Regular.eot");
+    src: url("../fonts/JMHTypewriter-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/JMHTypewriter-Regular.woff2") format("woff2"), url("../fonts/JMHTypewriter-Regular.woff") format("woff"),
+        url("../fonts/JMHTypewriter-Regular.ttf") format("truetype"), url("../fonts/JMHTypewriter-Regular.svg#JMHTypewriter-Regular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "JMH Typewriter";
+    src: url("../fonts/JMHTypewriter-Black.eot");
+    src: url("../fonts/JMHTypewriter-Black.eot?#iefix") format("embedded-opentype"), url("../fonts/JMHTypewriter-Black.woff2") format("woff2"), url("../fonts/JMHTypewriter-Black.woff") format("woff"),
+        url("../fonts/JMHTypewriter-Black.ttf") format("truetype"), url("../fonts/JMHTypewriter-Black.svg#JMHTypewriter-Black") format("svg");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "JMH Typewriter";
+    src: url("../fonts/JMHTypewriter-Thin.eot");
+    src: url("../fonts/JMHTypewriter-Thin.eot?#iefix") format("embedded-opentype"), url("../fonts/JMHTypewriter-Thin.woff2") format("woff2"), url("../fonts/JMHTypewriter-Thin.woff") format("woff"),
+        url("../fonts/JMHTypewriter-Thin.ttf") format("truetype"), url("../fonts/JMHTypewriter-Thin.svg#JMHTypewriter-Thin") format("svg");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "JMH Typewriter";
+    src: url("../fonts/JMHTypewriter-Bold.eot");
+    src: url("../fonts/JMHTypewriter-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/JMHTypewriter-Bold.woff2") format("woff2"), url("../fonts/JMHTypewriter-Bold.woff") format("woff"),
+        url("../fonts/JMHTypewriter-Bold.ttf") format("truetype"), url("../fonts/JMHTypewriter-Bold.svg#JMHTypewriter-Bold") format("svg");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+
+i:before {
+    margin-left: 0px !important;
+}
+
+ul li {
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    letter-spacing: 0px;
+    font-size: 16px;
+    font-weight: normal;
+    font-family: "JMH Typewriter";
+    color: #000;
+    padding: 0px;
+    overflow-x: hidden;
+    z-index: 0;
+}
+
+a,
+.btn,
+button {
+    text-decoration: none;
+
+    outline: none;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+}
+
+a:hover,
+a:focus,
+.btn:hover,
+.btn:focus,
+button:hover,
+button:focus {
+    text-decoration: none;
+    outline: none;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.sec_pad {
+    padding: 60px 0px;
+}
+
+.flt-l {
+    float: left;
+}
+
+.flt-r {
+    float: right;
+}
+
+p {
+    margin-bottom: 10px;
+    color: #888888;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+/*---left-menu-bar-----*/
+
+.logo-sec-menu {
+    /* border-bottom: 1px solid #ddd;
+    margin-bottom: 5px;*/
+}
+
+.menu-bar-outer {
+    top: 0;
+    padding: 30px 25px;
+    /* box-shadow: 0px 2px 8px rgb(0 0 0 / 15%);*/
+    background: #000;
+    position: fixed;
+    left: 0;
+    height: 100%;
+    width: 300px;
+    max-width: 300px;
+    overflow-y: scroll;
+    z-index: 9;
+}
+
+.nav-menu li a {
+    padding: 6px 10px;
+    display: block;
+    color: #6d6b6b;
+}
+
+.nav-menu li strong {
+    padding: 10px 10px;
+    font-size: 17px;
+    color: #6d6b6b;
+    font-weight: normal;
+}
+
+.nav-menu li a span {
+    margin-right: 10px;
+}
+.nav-menu li a b {
+    font-weight: 500;
+}
+.nav-menu li {
+    margin-bottom: 5px;
+}
+
+.nav-menu li a:hover {
+    background: #d91919;
+    color: #fff;
+}
+
+/*.nav-menu li a:hover img {
+    filter: brightness(0) invert(1);
+}
+
+.nav-menu li .active {
+    background: #0068ed;
+    color: #fff;
+}
+
+.nav-menu li .active img {
+    filter: brightness(0) invert(1);
+}*/
+
+/* width */
+.menu-bar-outer::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+.menu-bar-outer::-webkit-scrollbar-track {
+    background: #ddd;
+}
+
+/* Handle */
+.menu-bar-outer::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+.menu-bar-outer::-webkit-scrollbar-thumb:hover {
+    background: #d91919;
+}
+
+/*---left-menu-bar-----*/
+
+/*---right-panel-----*/
+
+.right-panel {
+    max-width: 78%;
+    margin-left: auto;
+    margin-right: 0;
+    /*padding-left: 40px;
+    padding-right: 60px;
+    padding-bottom: 20px;
+    padding-top: 20px;*/
+}
+
+.right-part-header {
+    /*  padding: 18px 0;*/
+    -webkit-box-shadow: 0px 4px 6px 0px rgb(12 0 46 / 6%);
+    box-shadow: 0px 4px 6px 0px rgb(12 0 46 / 6%);
+    padding-left: 40px;
+    padding-right: 60px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.head-title h2 {
+    margin-bottom: 0;
+}
+
+.head-title span {
+    color: #d91919;
+}
+
+.user-icon img {
+    width: 50px;
+    height: 50px;
+}
+
+/*---right-panel-----*/
+
+/*----body-----*/
+
+.body-wrap {
+    padding: 0 60px 60px;
+}
+
+.current-ref ul {
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    margin-top: 40px;
+    position: relative;
+}
+
+.current-ref ul:before {
+    position: absolute;
+    content: "";
+    background: #c0c0c0;
+    width: 89%;
+    height: 1px;
+    top: 20px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: -1;
+}
+
+.current-ref ul li {
+    width: 12.5%;
+}
+
+.current-ref ul li strong b {
+    display: block;
+    color: #a2a2a2;
+    margin-top: 5px;
+}
+
+.current-ref ul li span {
+    width: 37px;
+    height: 37px;
+    display: inline-block;
+    background: #5e5e5e;
+    border-radius: 100%;
+    padding: 8px 0;
+    margin-bottom: 15px;
+}
+
+.current-ref ul li span img {
+    width: 22px;
+}
+
+.current-ref ul li strong {
+    font-weight: normal;
+    color: #282828;
+}
+
+.awesome-vidz {
+    padding: 50px;
+    background: #fff;
+    box-shadow: 0 0 10px 5px rgb(12 0 46 / 6%);
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.awesome-vidz h1 {
+    margin-bottom: 20px;
+}
+
+.awesome-vidz h1 span {
+    color: #d91919;
+}
+
+.awesome-vidz ul {
+    padding: 0;
+    margin: 0;
+}
+
+.awesome-vidz ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+}
+
+.awesome-vidz ul li:last-child {
+    border-bottom: none;
+}
+
+.awesome-vidz ul li p {
+    margin-bottom: 0;
+}
+
+.awesome-vidz ul li strong {
+    font-size: 20px;
+    position: relative;
+}
+
+.awesome-vidz ul li strong:before {
+    position: absolute;
+    content: "";
+    background: url("../images/player-icon.png") no-repeat;
+    background-size: 100% 100%;
+    width: 25px;
+    height: 27px;
+    left: -35px;
+    top: 0;
+}
+
+.awesome-vidz ul li p {
+    font-size: 14px;
+}
+
+.modal-content {
+    padding: 0 30px;
+}
+
+.modal-header {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.modal-body {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.modal-title {
+    font-size: 20px;
+    line-height: normal;
+}
+
+.modal-footer .btn {
+    background: #fff;
+    border: 1px solid #ddd;
+    color: #a4a1a1;
+    font-weight: bold;
+    padding: 7px 30px;
+    border-radius: 0;
+    font-size: 14px;
+}
+
+.current-ref {
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+.awesome-vidz .figcaption h3 {
+    font-size: 20px;
+    border-bottom: 1px solid #cdcbcb;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.awesome-vidz .figcaption p {
+    font-size: 14px;
+}
+
+.awesome-vidz .figcaption .alert-part {
+    color: #d91919;
+    font-weight: bold;
+}
+
+.registration-bg {
+    background: url("../images/login-bg.jpg") no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.reg-wrap {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.reg-wrap p {
+    color: #000;
+}
+
+.reg-wrap .logo-sec {
+    margin-bottom: 30px;
+}
+
+.reg-wrap .logo-sec img {
+    width: 100%;
+}
+
+.reg-wrap .logo-sec a {
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.reg-wrap .logo-sec p {
+    font-size: 20px;
+    color: #000;
+}
+
+.form-sec strong {
+    color: #d81010;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.form-sec p {
+    font-size: 14px;
+}
+
+.form-sec form {
+    margin-top: 40px;
+}
+
+.form-sec .form-control {
+    height: 50px;
+    border-radius: 6px;
+    opacity: 0.7;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    padding: 10px 20px;
+    padding-right: 50px;
+}
+
+.form-sec label {
+    display: block;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-sec i {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+.form-sec .btn {
+    width: 100%;
+    background: #d81010;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 1px solid #6c0808;
+    border-radius: 6px;
+    margin: 15px 0 30px;
+}
+
+.form-sec .btn:hover {
+    background: #6c0808;
+    color: #fff;
+}
+
+.form-btm-sec strong {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.form-btm-sec .figcaption span {
+    margin-bottom: 10px;
+}
+
+.form-btm-sec .figcaption p {
+    font-size: 14px;
+}
+
+.form-btm-sec .figcaption {
+    margin-bottom: 20px;
+}
+
+.form-btm-sec .figcaption:last-child {
+    margin-bottom: 0;
+}
+
+.for-login-sec .reg-wrap {
+    max-width: 520px;
+}
+
+.login-btn-sec {
+    padding: 0 175px;
+    margin-top: -30px;
+    margin-bottom: 30px;
+}
+
+.login-btn {
+    background: url("../images/btn-bg.png") no-repeat;
+    padding: 10px 30px;
+    color: #fff;
+    font-weight: bold;
+    background-size: 100% 100%;
+    border-radius: 5px;
+}
+
+.login-btn:hover {
+    background: #000;
+    color: #fff;
+}
+
+.keypad-bg {
+    background: url("../images/login-dial-bg.png") no-repeat;
+    background-size: 100% 100%;
+    padding: 25px 15px 15px;
+    border: 5px solid #eeeeee;
+    border-radius: 30px;
+    box-shadow: 0 0 10px 5px rgb(12 0 46 / 10%);
+}
+
+.keypad-bg .button {
+    background: url("../images/dial-icon.png") no-repeat;
+    background-size: 100% 100%;
+    width: 80px;
+    height: 80px;
+    padding: 12px 0;
+    text-align: center;
+    font-size: 24px;
+    color: #161c27;
+    text-shadow: 1px 1px 0px #fff;
+    font-weight: 600;
+    display: inline-block;
+    margin: 0 5px 20px;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    box-shadow: 0px 6px 10px 0px rgb(12 0 46 / 50%);
+    border-radius: 10px;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+}
+
+.keypad-bg .button span {
+    display: block;
+    font-size: 14px;
+    text-transform: lowercase;
+    text-shadow: none;
+    margin-top: -5px;
+}
+
+.keypad-bg .button:hover {
+    transform: scale(1.05);
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+}
+
+.keypad-bg .button-row {
+    max-width: 290px;
+    margin: 0 auto;
+}
+
+.for-number {
+    max-width: 280px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    height: 80px;
+    margin-bottom: 30px;
+}
+
+.for-number p {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 0;
+    padding: 17px 0;
+    letter-spacing: 4px;
+    transition: 0.5s;
+    font-family: "Poppins", sans-serif;
+    color: #ddd;
+}
+
+.login-text-wrap strong {
+    font-size: 20px;
+    color: #d81010;
+    margin-bottom: 10px;
+}
+
+.login-text-wrap p {
+    color: #000;
+    font-size: 14px;
+}
+
+.login-text-wrap {
+    margin-bottom: 30px;
+}
+
+/*----body-----*/
+
+/*----for-nav-menu-show-hide-----*/
+
+.toggle-btn {
+    display: none;
+}
+
+/*----for-nav-menu-show-hide-----*/
+
+/*----26-07-21-----*/
+
+
+.form-sec p span {
+color: red;
+display: block;
+text-align: left;
+margin-top: 5px;
+
+}
+
+#loginModal .form-control {
+
+    height: 50px;border: 1px solid #ddd;
+}
+
+#loginModal .close {
+
+    font-family: 'Poppins';
+}
+
+#loginModal .btn{background: #d81010;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 1px solid #6c0808;
+    border-radius: 6px;
+    margin: 0;}
+
+    #loginModal .btn:hover {
+        background: #6c0808;
+
+    }
+
+
+
+
+
+/*----26-07-21-----*/
+
+
+/*-------media-query------*/
+
+@media screen and (min-width: 1640px) {
+    .right-panel {
+        max-width: 82% !important;
+    }
+}
+
+@media screen and (min-width: 1700px) {
+    .right-panel {
+        max-width: 85% !important;
+    }
+
+    .right-part-header {
+        padding-left: 80px;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .right-panel {
+        max-width: 80%;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .right-panel {
+        max-width: 75%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .right-panel {
+        max-width: 71%;
+    }
+
+    body {
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .awesome-vidz .figcaption h3 {
+        font-size: 16px;
+    }
+
+    .awesome-vidz {
+        padding: 30px;
+    }
+
+    .sec_pad {
+        padding: 30px 0px;
+    }
+
+    .body-wrap {
+        padding: 0 30px 30px;
+    }
+
+    .right-part-header .row {
+        align-items: center;
+    }
+
+    .awesome-vidz ul li strong {
+        font-size: 16px;
+    }
+
+    .modal-title {
+        font-size: 16px;
+    }
+
+    .reg-wrap .logo-sec p {
+        font-size: 14px;
+    }
+
+    .reg-wrap .logo-sec {
+        margin-bottom: 15px;
+    }
+
+    .form-sec form {
+        margin-top: 20px;
+    }
+
+    .form-sec strong {
+        font-size: 16px;
+    }
+
+    .form-btm-sec strong {
+        font-size: 16px;
+    }
+
+    .login-btn-sec {
+        padding: 0 15px;
+        margin-top: 0;
+    }
+
+    .login-text-wrap strong {
+        font-size: 15px;
+    }
+
+    .for-number {
+        height: 60px;
+    }
+
+    .for-number p {
+        font-size: 20px;
+
+        padding: 15px 0;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    /*----for-menu-----*/
+
+    .right-panel {
+        max-width: 100%;
+    }
+
+    .toggle-btn {
+        display: block;
+        margin-right: 15px;
+    }
+
+    .toggle-btn.text-right {
+        margin-right: 0;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        z-index: 1;
+    }
+
+    .right-part-header {
+        padding: 15px;
+    }
+
+    .right-part-header .row {
+        align-items: center;
+    }
+
+    .right-part-header .col-lg-6 {
+        width: 75%;
+    }
+
+    .right-part-header .col-lg-6 + .col-lg-6 {
+        width: 25%;
+    }
+
+    .right-part-header .col-lg-6:nth-child(1) {
+        display: flex;
+        align-items: center;
+    }
+
+    .toggle-btn button {
+        background: none;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .menu-bar-outer {
+        padding: 20px 15px;
+        overflow: hidden;
+        transition: 0.5s;
+        width: 100%;
+        max-width: 100%;
+        transform: translateX(-100%);
+    }
+
+    .menu-bar-outer.menu-toggle {
+        overflow: visible;
+        overflow-y: scroll;
+        transform: translateX(0px);
+        display: block;
+        transition: 0.5s;
+    }
+
+    .logo-sec-menu figure {
+        width: 200px;
+        overflow: hidden;
+    }
+
+    .logo-sec-menu figure img {
+        width: 100%;
+    }
+
+    /*----for-menu-----*/
+}
+
+@media screen and (max-width: 568px) {
+    .current-ref ul li {
+        width: 25%;
+        margin-bottom: 10px;
+    }
+
+    .current-ref ul {
+        margin-top: 30px;
+    }
+
+    .current-ref ul:after {
+        position: absolute;
+        content: "";
+        background: #c0c0c0;
+        width: 89%;
+        height: 1px;
+        bottom: 87px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: -1;
+    }
+
+    .body-wrap {
+        padding: 0 15px 15px;
+    }
+
+    .modal-content {
+        padding: 0 15px;
+    }
+
+    .keypad-bg .button {
+        font-size: 20px;
+        width: 68px;
+        padding: 9px 0;
+        height: 68px;
+    }
+}
+
+/*-------media-query------*/
