@@ -72,6 +72,12 @@ Route::middleware(['auth:admin', 'PreventBackHistory:admin'])->group(function() 
     Route::post('/admin/contents/register-edit-save', [ContentController::class, 'register_edit_save'])->name('admin.contents.register.edit.save');
     Route::get('/admin/contents/register-delete/{id}', [ContentController::class, 'register_delete'])->name('admin.contents.register.delete');
 
+    Route::get('/admin/contents/facebook', [ContentController::class, 'facebook'])->name('admin.contents.facebook');
+    Route::post('/admin/contents/facebook-save', [ContentController::class, 'facebook_save'])->name('admin.contents.facebook.save');
+
+    Route::get('/admin/contents/webinar', [ContentController::class, 'webinar'])->name('admin.contents.webinar');
+    Route::post('/admin/contents/webinar-save', [ContentController::class, 'webinar_save'])->name('admin.contents.webinar.save');
+
     Route::get('/admin/levels', [LevelController::class, 'index'])->name('admin.levels');
     Route::get('/admin/levels/add', [LevelController::class, 'add'])->name('admin.levels.add');
     Route::post('/admin/levels/save', [LevelController::class, 'save'])->name('admin.levels.save');

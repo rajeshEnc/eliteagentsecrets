@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\RegisterContent;
 use App\Models\LoginContent;
 use App\Models\DashboardContent;
+use App\Models\FacebookContent;
+use App\Models\LevelContent;
 use Illuminate\Support\Facades\Auth;
 
 class ContentController extends Controller
@@ -126,5 +128,43 @@ class ContentController extends Controller
                     ->where('id', $id)
                     ->delete();
         return redirect()->route('admin.contents.register')->with('success', 'Data has been deleted successfully');
+    }
+
+    function facebook() {
+        $data['levels'] = \DB::table('levels')
+                            ->where('status', '!=', 'D')
+                            ->get();
+        $data['content'] = \DB::table('facebook_contents')
+                            ->where('id', 1)
+                            ->first();
+        return view('dashboard.admin.contents.facebook', $data);
+    }
+
+    function facebook_save(Request $request) {
+        $updating = \DB::table('facebook_contents')
+                    ->where('id', 1)
+                    ->update([
+                        'link' => $request->input('facebook_link')
+                    ]);
+        return redirect()->route('admin.contents.facebook')->with('success', 'Data has been updated successfully');  
+    }
+
+    function webinar() {
+        $data['levels'] = \DB::table('levels')
+                            ->where('status', '!=', 'D')
+                            ->get();
+        $data['content'] = \DB::table('facebook_contents')
+                            ->where('id', 2)
+                            ->first();
+        return view('dashboard.admin.contents.webinar', $data);
+    }
+
+    function webinar_save(Request $request) {
+        $updating = \DB::table('facebook_contents')
+                    ->where('id', 2)
+                    ->update([
+                        'link' => $request->input('webinar_link')
+                    ]);
+        return redirect()->route('admin.contents.webinar')->with('success', 'Data has been updated successfully');
     }
 }

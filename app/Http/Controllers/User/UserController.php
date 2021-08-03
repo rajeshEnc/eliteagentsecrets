@@ -5,25 +5,28 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\FacebookContent;
+use App\Models\DashboardContent;
+use App\Models\LoginContent;
+use App\Models\RegisterContent;
+use App\Models\LevelContent;
+use App\Models\Level;
 use Illuminate\Support\Facades\Auth;
 use App\Helpers\Helper;
 
 class UserController extends Controller
 {
     function login() {
-        $data['content'] = \DB::table('login_contents')
-                            ->where('id', 1)
-                            ->first();
+        $data['content'] = LoginContent::find(1);
         return view('dashboard.user.login', $data);
     }
 
     function index() {
-        $data['content'] = \DB::table('dashboard_contents')
-                            ->where('id', 1)
-                            ->first();
-        $data['levels'] = \DB::table('levels')
-                            ->where('status', '!=', 'D')
+        $data['content'] = DashboardContent::find(1);
+        $data['levels'] = Level::where('status', '!=', 'D')
                             ->get();
+        $data['facebook_link'] = FacebookContent::find(1);
+        $data['webinar_link'] = FacebookContent::find(2);
         return view('dashboard.user.home', $data);
     }
 
@@ -76,16 +79,17 @@ class UserController extends Controller
     }
 
     function level($level_id) {
-        return view('dashboard.user.level');
+        $data['levels'] = Level::where('status', '!=', 'D')->get();
+        $data['level_details'] = Level::find($level_id);
+        $data['level_contents'] = LevelContent::where('level_id', $level_id)->get();
+        $data['facebook_link'] = FacebookContent::find(1);
+        $data['webinar_link'] = FacebookContent::find(2);
+        return view('dashboard.user.level', $data);
     }
 
     function register() {
-        $data['content'] = \DB::table('register_contents')
-                            ->where('id', 1)
-                            ->first();
-        $data['texts'] = \DB::table('register_contents')
-                            ->where('id', '!=', 1)
-                            ->get();
+        $data['content'] = RegisterContent::find(1);
+        $data['texts'] = RegisterContent::where('id', '!=', 1)->get();
         return view('dashboard.user.register', $data);
     }
 }

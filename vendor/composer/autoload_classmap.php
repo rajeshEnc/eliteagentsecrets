@@ -34,6 +34,7 @@ return array(
     'App\\Models\\Admin' => $baseDir . '/app/Models/Admin.php',
     'App\\Models\\Content' => $baseDir . '/app/Models/Content.php',
     'App\\Models\\DashboardContent' => $baseDir . '/app/Models/DashboardContent.php',
+    'App\\Models\\FacebookContent' => $baseDir . '/app/Models/FacebookContent.php',
     'App\\Models\\Level' => $baseDir . '/app/Models/Level.php',
     'App\\Models\\LevelContent' => $baseDir . '/app/Models/LevelContent.php',
     'App\\Models\\LoginContent' => $baseDir . '/app/Models/LoginContent.php',

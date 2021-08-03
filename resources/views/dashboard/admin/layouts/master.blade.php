@@ -122,6 +122,18 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                      <a href="{{ route('admin.contents.webinar') }}" class="nav-link @if(request()->path() == 'admin/contents/webinar') active @endif">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Bonus Webinar</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{ route('admin.contents.facebook') }}" class="nav-link @if(request()->path() == 'admin/contents/facebook') active @endif">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Facebook Group</p>
+                      </a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-item">

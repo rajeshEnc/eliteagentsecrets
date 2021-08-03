@@ -539,6 +539,7 @@ class ComposerStaticInit4f68b308d862d6248b0ff8ab90baff2e
         'App\\Models\\Admin' => __DIR__ . '/../..' . '/app/Models/Admin.php',
         'App\\Models\\Content' => __DIR__ . '/../..' . '/app/Models/Content.php',
         'App\\Models\\DashboardContent' => __DIR__ . '/../..' . '/app/Models/DashboardContent.php',
+        'App\\Models\\FacebookContent' => __DIR__ . '/../..' . '/app/Models/FacebookContent.php',
         'App\\Models\\Level' => __DIR__ . '/../..' . '/app/Models/Level.php',
         'App\\Models\\LevelContent' => __DIR__ . '/../..' . '/app/Models/LevelContent.php',
         'App\\Models\\LoginContent' => __DIR__ . '/../..' . '/app/Models/LoginContent.php',
