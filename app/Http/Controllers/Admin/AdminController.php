@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin;
+use App\Models\Level;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
@@ -14,9 +16,8 @@ class AdminController extends Controller
     }
 
     function home() {
-        $data['levels'] = \DB::table('levels')
-                            ->where('status', '!=', 'D')
-                            ->get();
+        $data['levels'] = Level::where('status', '!=', 'D')->get();
+        $data['total_users'] = User::count();
         return view('dashboard.admin.home', $data);
     }
 
@@ -40,5 +41,11 @@ class AdminController extends Controller
     function logout() {
         Auth::guard('admin')->logout();
         return redirect()->route('admin.login');
+    }
+
+    function users() {
+        $data['levels'] = Level::where('status', '!=', 'D')->get();
+        $data['users'] = User::orderByDesc('id')->get();
+        return view('dashboard.admin.users', $data);
     }
 }

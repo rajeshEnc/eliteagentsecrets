@@ -88,6 +88,12 @@
                     <p>Dashboard</p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.users') }}" class="nav-link @if(request()->path() == 'admin/users') active @endif">
+                    <i class="nav-icon fas fa-users"></i>
+                    <p>Users</p>
+                </a>
+            </li>
             <li class="nav-item @if(request()->is('admin/contents/*')) menu-open @endif">
                 <a href="#" class="nav-link @if(request()->is('admin/contents/*')) active @endif">
                     <i class="nav-icon fas fa-table"></i>

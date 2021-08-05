@@ -58,6 +58,8 @@ Route::middleware(['auth:admin', 'PreventBackHistory:admin'])->group(function() 
     Route::get('/admin/home', [AdminController::class, 'home'])->name('admin.home');
     Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
 
+    Route::get('/admin/users', [AdminController::class, 'users'])->name('admin.users');
+
     Route::get('/admin/contents/dashboard', [ContentController::class, 'dashboard'])->name('admin.contents.dashboard');
     Route::post('/admin/contents/dashboard-save', [ContentController::class, 'dashboard_save'])->name('admin.contents.dashboard.save');
 

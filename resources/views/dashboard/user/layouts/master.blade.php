@@ -26,9 +26,11 @@
             <div class="nav-menu">
                 <ul class="p-0 m-0">
                     <li>
-                        <strong class="d-block">
-                            <span><img src="{{ asset('user/images/dashboard-icon.png') }}" /></span> Dashboard
-                        </strong>
+                        <a href="{{ route('user.home') }}">
+                            <strong class="d-block">
+                                <span><img src="{{ asset('user/images/dashboard-icon.png') }}" /></span> Dashboard
+                            </strong>
+                        </a>
                     </li>
                     @foreach ($levels as $level)
                     <li>
@@ -77,7 +79,7 @@
                             </div>
 
                             <div class="head-title">
-                                <h2>Level 8</h2>
+                                <h2>{{ $max_level->title }}</h2>
                                 <span class="d-block">Refer To Upgrade</span>
                             </div>
                         </div>

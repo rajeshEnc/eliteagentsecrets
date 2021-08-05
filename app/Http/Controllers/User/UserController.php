@@ -22,9 +22,11 @@ class UserController extends Controller
     }
 
     function index() {
+        $user = Auth::user();
+        $count_feferral = User::where('entered_code', $user->reffer_code)->count();
+        $data['max_level'] = Level::where('referrals', '<=', $count_feferral)->orderByDesc('id')->first();
         $data['content'] = DashboardContent::find(1);
-        $data['levels'] = Level::where('status', '!=', 'D')
-                            ->get();
+        $data['levels'] = Level::where('status', '!=', 'D')->get();
         $data['facebook_link'] = FacebookContent::find(1);
         $data['webinar_link'] = FacebookContent::find(2);
         return view('dashboard.user.home', $data);
@@ -79,6 +81,9 @@ class UserController extends Controller
     }
 
     function level($level_id) {
+        $user = Auth::user();
+        $count_feferral = User::where('entered_code', $user->reffer_code)->count();
+        $data['max_level'] = Level::where('referrals', '<=', $count_feferral)->orderByDesc('id')->first();
         $data['levels'] = Level::where('status', '!=', 'D')->get();
         $data['level_details'] = Level::find($level_id);
         $data['level_contents'] = LevelContent::where('level_id', $level_id)->get();
