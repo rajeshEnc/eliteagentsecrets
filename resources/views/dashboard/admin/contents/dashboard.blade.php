@@ -1,5 +1,5 @@
 @extends('dashboard.admin.layouts.master')
-@section('title', 'Contents | Dashboard')
+@section('title', 'Admin | Contents | Dashboard')
 
 @section('content')
     <!-- Content Header (Page header) -->

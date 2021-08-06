@@ -1,5 +1,5 @@
 @extends('dashboard.admin.layouts.master')
-@section('title', 'Levels')
+@section('title', 'Admin | Levels')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -38,7 +38,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="{{ route('admin.levels.save') }}" method="POST">
+                <form action="{{ route('admin.levels.save') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
@@ -52,9 +52,18 @@
                             <span class="text-danger">@error('heading'){{ $message }}@enderror</span>
                         </div>
                         <div class="form-group">
+                            <label for="heading_color">Heading Color (use HEX Code only i.e. #d91919)</label>
+                            <input type="text" name="heading_color" class="form-control" id="heading_color" value="{{ old('heading_color') }}">
+                            <span class="text-danger">@error('heading_color'){{ $message }}@enderror</span>
+                        </div>
+                        <div class="form-group">
                             <label for="referrals">Total Referrals</label>
                             <input type="number" name="referrals" class="form-control" id="referrals" value="{{ old('referrals') }}">
                             <span class="text-danger">@error('referrals'){{ $message }}@enderror</span>
+                        </div>
+                        <div class="form-group">
+                          <label for="referrals">Level Icon</label>
+                          <input type="file" name="icon" class="form-control" accept="image/png, image/jpeg">
                         </div>
                     </div>
                     <!-- /.card-body -->

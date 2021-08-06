@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Level;
 use App\Models\LevelContent;
 use Illuminate\Support\Facades\Auth;
+use App\Helpers\Helper;
 
 class LevelController extends Controller
 {
@@ -30,10 +31,17 @@ class LevelController extends Controller
             'title' => 'required'
         ]);
 
+        // upload image
+        $path = 'uploads/';
+        $newname = Helper::renameImageFile($path, $request->file('icon')->getClientOriginalName());
+        $upload = $request->icon->move(public_path($path), $newname);
+
         $data = new Level();
         $data->title = $request->title;
         $data->heading = $request->heading;
+        $data->heading_color = $request->heading_color;
         $data->referrals = $request->referrals;
+        $data->icon = $newname;
         $save = $data->save();
 
         if($save) {
@@ -58,12 +66,29 @@ class LevelController extends Controller
             'title' => 'required'
         ]);
 
+        $newname = '';
+
+        if ($request->hasFile('icon')) {
+            // upload image
+            $path = 'uploads/';
+            $newname = Helper::renameImageFile($path, $request->file('icon')->getClientOriginalName());
+            $upload = $request->icon->move(public_path($path), $newname);
+        }
+
+        if ($newname) {
+            $updatedName = $newname;
+        } else {
+            $updatedName = $request->input('oldfilename');
+        }
+
         $updating = \DB::table('levels')
                     ->where('id', $request->input('lid'))
                     ->update([
                         'title' => $request->input('title'),
                         'heading' => $request->input('heading'),
-                        'referrals' => $request->input('referrals')
+                        'heading_color' => $request->input('heading_color'),
+                        'referrals' => $request->input('referrals'),
+                        'icon' => $updatedName
                     ]);
 
         return redirect()->route('admin.levels')->with('success', 'Data has been updated successfully');

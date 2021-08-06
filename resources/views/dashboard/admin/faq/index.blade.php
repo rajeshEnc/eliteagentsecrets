@@ -1,5 +1,5 @@
 @extends('dashboard.admin.layouts.master')
-@section('title', 'Admin | Levels')
+@section('title', 'Admin | FAQs')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -7,13 +7,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Levels</h1>
+              <h1>FAQs</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('admin.levels') }}">Levels</a></li>
-                <li class="breadcrumb-item active">{{ $level_details->title }}</li>
+                <li class="breadcrumb-item active">FAQs</li>
               </ol>
             </div>
           </div>
@@ -33,7 +32,7 @@
                 @endif
               <div class="card">
                 <div class="card-header">
-                  <a href="{{ route('admin.level.add', $level_details->id) }}" class="btn btn-dark" style="float:right;">Add Level Content</a>
+                  <a href="{{ route('admin.contents.faqs.add') }}" class="btn btn-dark" style="float:right;">Add FAQ</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -41,29 +40,25 @@
                     <thead>
                         <tr>
                             <th>Sl No.</th>
-                            <th>Title</th>
-                            <th>Sub Title</th>
-                            <th>Video Link</th>
-                            <th>Content</th>
+                            <th>Question</th>
+                            <th>Answer</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($level_contents as $content)
-                            <tr>
-                                <td>{{ $loop->index + 1 }}</td>
-                                <td>{{ $content->title }}</td>
-                                <td>{{ $content->subtitle }}</td>
-                                <td>{{ $content->video_link }}</td>
-                                <td>{{ $content->content }}</td>
-                                <td>
-                                    <div class="btn-group">
-                                        <a href="{{ route('admin.level.edit', [$level_details->id, $content->id]) }}" class="text-primary"><i class="fas fa-edit"></i></a>
-                                        <a href="{{ route('admin.level.delete', [$level_details->id, $content->id]) }}" class="text-danger"><i class="fas fa-trash-alt"></i></a>
-                                    </div>
-                                </td>
-                            </tr>
-                        @endforeach
+                      @foreach ($faqs as $faq)
+                          <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td>{{ $faq->question }}</td>
+                            <td>{!! $faq->answer !!}</td>
+                            <td>
+                                <div class="btn-group">
+                                    <a href="{{ route('admin.contents.faqs.edit', $faq->id) }}" class="text-primary"><i class="fas fa-edit"></i></a>
+                                    <a href="{{ route('admin.contents.faqs.delete', $faq->id) }}" class="text-danger"><i class="fas fa-trash-alt"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                      @endforeach
                     </tbody>
                   </table>
                 </div>

@@ -7,14 +7,14 @@
     <ul class="d-flex">
         @foreach ($levels as $level)
             <li>
-                <span class="img-bg"><img src="{{ asset('user/images/cup-icon.png') }}" /></span>
+                <span class="img-bg"><img src="{{ asset('uploads/').'/'.$level->icon }}" /></span>
                 <strong class="d-block">{{ $level->title }} <b>{{ $level->referrals }}</b></strong>
             </li>
         @endforeach
     </ul>
 </div>
 <div class="awesome-vidz">
-    <h1 class="text-center">{{ $level_details->title }} @if ($level_details->heading) - <span>{{ $level_details->heading }}</span> @endif</h1>
+    <h1 class="text-center">{{ $level_details->title }} @if ($level_details->heading) - <span style="color: {{ $level_details->heading_color }};">{{ $level_details->heading }}</span> @endif</h1>
 
     <ul>
         @foreach ($level_contents as $content)

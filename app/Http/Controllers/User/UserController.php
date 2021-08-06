@@ -10,6 +10,7 @@ use App\Models\DashboardContent;
 use App\Models\LoginContent;
 use App\Models\RegisterContent;
 use App\Models\LevelContent;
+use App\Models\ReferContent;
 use App\Models\Level;
 use Illuminate\Support\Facades\Auth;
 use App\Helpers\Helper;
@@ -96,5 +97,18 @@ class UserController extends Controller
         $data['content'] = RegisterContent::find(1);
         $data['texts'] = RegisterContent::where('id', '!=', 1)->get();
         return view('dashboard.user.register', $data);
+    }
+
+    function refer() {
+        $user = Auth::user();
+        $count_feferral = User::where('entered_code', $user->reffer_code)->count();
+        $data['max_level'] = Level::where('referrals', '<=', $count_feferral)->orderByDesc('id')->first();
+        $data['levels'] = Level::where('status', '!=', 'D')->get();
+        $data['facebook_link'] = FacebookContent::find(1);
+        $data['webinar_link'] = FacebookContent::find(2);
+        $data['content'] = ReferContent::find(1);
+        $data['reffer_code'] = $user->reffer_code;
+
+        return view('dashboard.user.refer', $data);
     }
 }

@@ -9,6 +9,8 @@ use App\Models\LoginContent;
 use App\Models\DashboardContent;
 use App\Models\FacebookContent;
 use App\Models\LevelContent;
+use App\Models\Level;
+use App\Models\ReferContent;
 use Illuminate\Support\Facades\Auth;
 
 class ContentController extends Controller
@@ -166,5 +168,21 @@ class ContentController extends Controller
                         'link' => $request->input('webinar_link')
                     ]);
         return redirect()->route('admin.contents.webinar')->with('success', 'Data has been updated successfully');
+    }
+
+    function refer() {
+        $data['levels'] = Level::where('status', '!=', 'D')->get();
+        $data['content'] = ReferContent::find(1);
+        return view('dashboard.admin.contents.refer', $data);
+    }
+
+    function refer_save(Request $request) {
+        $updating = ReferContent::where('id', 1)
+                    ->update([
+                        'top_text' => $request->input('top_text'),
+                        'center_text' => $request->input('center_text'),
+                        'bottom_text' => $request->input('bottom_text')
+                    ]);
+        return redirect()->route('admin.contents.refer')->with('success', 'Data has been updated successfully');
     }
 }

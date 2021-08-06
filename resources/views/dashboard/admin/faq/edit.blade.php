@@ -1,5 +1,5 @@
 @extends('dashboard.admin.layouts.master')
-@section('title', 'Admin | Contents | Facebook Group')
+@section('title', 'Admin | FAQs')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -7,12 +7,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Contents</h1>
+              <h1>FAQs</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
-                <li class="breadcrumb-item active">Facebook Group Content</li>
+                <li class="breadcrumb-item active">Edit FAQ</li>
               </ol>
             </div>
           </div>
@@ -25,26 +25,31 @@
           <div class="row">
             <!-- left column -->
             <div class="col-md-12">
-                @if (Session::get('success'))
-                <div class="alert alert-success alert-dismissible">
+                @if (Session::get('fail'))
+                <div class="alert alert-danger alert-dismissible">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    {{ Session::get('success') }}
+                    {{ Session::get('fail') }}
                 </div>
                 @endif
               <!-- jquery validation -->
               <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">Facebook Group Content</h3>
+                  <h3 class="card-title">Edit FAQ</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="{{ route('admin.contents.facebook.save') }}" method="POST">
+                <form action="{{ route('admin.contents.faqs.update', $faq->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="facebook_link">Facebook Group Link</label>
-                            <input type="text" name="facebook_link" class="form-control" id="facebook_link" value="{{ $content->link }}">
-                            <span class="text-danger">@error('facebook_link'){{ $message }}@enderror</span>
+                            <label for="question">Question</label>
+                            <input type="text" name="question" class="form-control" id="question" value="{{ $faq->question }}">
+                            <span class="text-danger">@error('question'){{ $message }}@enderror</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="answer">Answer</label>
+                            <textarea name="answer" class="form-control" id="answer">{{ $faq->answer }}</textarea>
+                            <span class="text-danger">@error('answer'){{ $message }}@enderror</span>
                         </div>
                     </div>
                     <!-- /.card-body -->
@@ -62,3 +67,13 @@
       </section>
       <!-- /.content -->
 @endsection
+
+@push('scripts')
+    <script src="//cdn.ckeditor.com/4.16.1/full/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('answer', {
+            filebrowserUploadUrl: "{{ route('admin.contents.faqs.upload', ['_token' => csrf_token()]) }}",
+            filebrowserUploadMethod: 'form'
+        });
+    </script>
+@endpush

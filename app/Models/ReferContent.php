@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class Level extends Authenticatable
+class ReferContent extends Authenticatable
 {
     use HasFactory, Notifiable;
 
@@ -17,12 +17,9 @@ class Level extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'title',
-        'heading',
-        'heading_color',
-        'referrals',
-        'icon',
-        'status',
+        'top_text',
+        'center_text',
+        'bottom_text',
     ];
 
     /**

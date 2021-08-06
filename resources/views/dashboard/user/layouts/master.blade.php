@@ -35,7 +35,7 @@
                     @foreach ($levels as $level)
                     <li>
                         <a href="{{ route('user.level', $level->id) }}">
-                            <span><img src="{{ asset('user/images/cup-icon.png') }}" /></span> {{ $level->title }}
+                            <span><img src="{{ asset('uploads/').'/'.$level->icon }}" /></span> {{ $level->title }}
                         </a>
                     </li>
                     @endforeach
@@ -45,7 +45,7 @@
                     </li>
 
                     <li>
-                        <a href="#">
+                        <a href="{{ route('user.refer') }}">
                             <span><img src="{{ asset('user/images/s1.png') }}" /></span> Refer People
                         </a>
                     </li>
@@ -80,7 +80,9 @@
 
                             <div class="head-title">
                                 <h2>{{ $max_level->title }}</h2>
-                                <span class="d-block">Refer To Upgrade</span>
+                                <a href="{{ route('user.refer') }}">
+                                    <span class="d-block">Refer To Upgrade</span>
+                                </a>
                             </div>
                         </div>
                         <div class="col-lg-6 text-right">

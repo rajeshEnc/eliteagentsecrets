@@ -8,7 +8,7 @@
     <ul class="d-flex">
         @foreach ($levels as $level)
         <li>
-            <span class="img-bg"><img src="images/cup-icon.png" /></span>
+            <span class="img-bg"><img src="{{ asset('uploads/').'/'.$level->icon }}" /></span>
             <strong class="d-block">{{ $level->title }} <b>{{ $level->referrals }}</b></strong>
         </li>
         @endforeach

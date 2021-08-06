@@ -17,7 +17,9 @@ class CreateLevelsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('heading')->nullable();
+            $table->string('heading_color')->nullable();
             $table->string('referrals')->nullable();
+            $table->string('icon')->nullable();
             $table->enum('status', ['A', 'I', 'D'])->default('A');
             $table->timestamps();
         });

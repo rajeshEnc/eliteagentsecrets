@@ -1,5 +1,5 @@
 @extends('dashboard.admin.layouts.master')
-@section('title', 'Levels')
+@section('title', 'Admin | Levels')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -42,6 +42,8 @@
                             <th>Sl No.</th>
                             <th>Title</th>
                             <th>Heading</th>
+                            <th>Heading Color</th>
+                            <th>Icon</th>
                             <th>Referrals</th>
                             <th>Action</th>
                         </tr>
@@ -52,6 +54,12 @@
                             <td>{{ $loop->index + 1 }}</td>
                             <td>{{ $level->title }}</td>
                             <td>{{ $level->heading }}</td>
+                            <td>{{ $level->heading_color }}</td>
+                            <td>
+                              @if ($level->icon)
+                              <img src="{{ asset('uploads/').'/'.$level->icon }}" style="width: auto;">
+                              @endif
+                            </td>
                             <td>{{ $level->referrals }}</td>
                             <td>
                                 <div class="btn-group">

@@ -1,5 +1,5 @@
 @extends('dashboard.admin.layouts.master')
-@section('title', 'Admin | Contents | Login')
+@section('title', 'Admin | Contents | Refer')
 
 @section('content')
     <!-- Content Header (Page header) -->
@@ -12,7 +12,7 @@
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
-                <li class="breadcrumb-item active">Login Content</li>
+                <li class="breadcrumb-item active">Refer Content</li>
               </ol>
             </div>
           </div>
@@ -34,27 +34,27 @@
               <!-- jquery validation -->
               <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">Login Content</h3>
+                  <h3 class="card-title">Refer Content</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="{{ route('admin.contents.login.save') }}" method="POST">
+                <form action="{{ route('admin.contents.refer.save') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="text_one">Text One</label>
-                            <input type="text" name="text_one" class="form-control" id="text_one" value="{{ $content->text_one }}">
-                            <span class="text-danger">@error('text_one'){{ $message }}@enderror</span>
+                            <label for="top_text">Top Text</label>
+                            <textarea name="top_text" class="form-control" id="top_text">{{ $content->top_text }}</textarea>
+                            <span class="text-danger">@error('top_text'){{ $message }}@enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="text_two">Text Two</label>
-                            <input type="text_two" name="text_two" class="form-control" id="text_two" value="{{ $content->text_two }}">
-                            <span class="text-danger">@error('text_two'){{ $message }}@enderror</span>
+                            <label for="center_text">Center Text</label>
+                            <textarea name="center_text" class="form-control" id="center_text">{{ $content->center_text }}</textarea>
+                            <span class="text-danger">@error('center_text'){{ $message }}@enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="text_three">Text three</label>
-                            <input type="text" name="text_three" class="form-control" id="text_three" value="{{ $content->text_three }}">
-                            <span class="text-danger">@error('text_three'){{ $message }}@enderror</span>
+                            <label for="bottom_text">Bottom Text</label>
+                            <textarea name="bottom_text" class="form-control" id="bottom_text">{{ $content->bottom_text }}</textarea>
+                            <span class="text-danger">@error('bottom_text'){{ $message }}@enderror</span>
                         </div>
                     </div>
                     <!-- /.card-body -->
@@ -72,3 +72,21 @@
       </section>
       <!-- /.content -->
 @endsection
+
+@push('scripts')
+    <script src="//cdn.ckeditor.com/4.16.1/full/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('top_text', {
+            filebrowserUploadUrl: "{{ route('admin.contents.faqs.upload', ['_token' => csrf_token()]) }}",
+            filebrowserUploadMethod: 'form'
+        });
+        CKEDITOR.replace('center_text', {
+            filebrowserUploadUrl: "{{ route('admin.contents.faqs.upload', ['_token' => csrf_token()]) }}",
+            filebrowserUploadMethod: 'form'
+        });
+        CKEDITOR.replace('bottom_text', {
+            filebrowserUploadUrl: "{{ route('admin.contents.faqs.upload', ['_token' => csrf_token()]) }}",
+            filebrowserUploadMethod: 'form'
+        });
+    </script>
+@endpush

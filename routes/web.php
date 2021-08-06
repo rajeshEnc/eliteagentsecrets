@@ -5,6 +5,7 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\LevelController;
 use App\Http\Controllers\Admin\ContentController;
+use App\Http\Controllers\Admin\FaqController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,7 @@ Route::middleware(['auth:web', 'PreventBackHistory:web'])->group(function() {
     Route::get('/user/home', [UserController::class, 'index'])->name('user.home');
     Route::post('/user/logout', [UserController::class, 'logout'])->name('user.logout');
     Route::get('/user/level/{id}', [UserController::class, 'level'])->name('user.level');
+    Route::get('/user/refer', [UserController::class, 'refer'])->name('user.refer');
 });
 
 // Admin routes
@@ -80,6 +82,9 @@ Route::middleware(['auth:admin', 'PreventBackHistory:admin'])->group(function() 
     Route::get('/admin/contents/webinar', [ContentController::class, 'webinar'])->name('admin.contents.webinar');
     Route::post('/admin/contents/webinar-save', [ContentController::class, 'webinar_save'])->name('admin.contents.webinar.save');
 
+    Route::get('/admin/contents/refer', [ContentController::class, 'refer'])->name('admin.contents.refer');
+    Route::post('/admin/contents/refer-save', [ContentController::class, 'refer_save'])->name('admin.contents.refer.save');
+
     Route::get('/admin/levels', [LevelController::class, 'index'])->name('admin.levels');
     Route::get('/admin/levels/add', [LevelController::class, 'add'])->name('admin.levels.add');
     Route::post('/admin/levels/save', [LevelController::class, 'save'])->name('admin.levels.save');
@@ -93,4 +98,12 @@ Route::middleware(['auth:admin', 'PreventBackHistory:admin'])->group(function() 
     Route::get('/admin/level/edit/{lid}/{id}', [LevelController::class, 'level_content_edit'])->name('admin.level.edit');
     Route::post('/admin/level/update', [LevelController::class, 'level_content_update'])->name('admin.level.update');
     Route::get('/admin/level/delete/{lid}/{id}', [LevelController::class, 'level_content_delete'])->name('admin.level.delete');
+
+    Route::get('/admin/contents/faqs', [FaqController::class, 'index'])->name('admin.contents.faqs');
+    Route::get('/admin/contents/faqs/add', [FaqController::class, 'create'])->name('admin.contents.faqs.add');
+    Route::post('/admin/contents/faqs/save', [FaqController::class, 'store'])->name('admin.contents.faqs.save');
+    Route::get('/admin/contents/faqs/edit/{id}', [FaqController::class, 'edit'])->name('admin.contents.faqs.edit');
+    Route::post('/admin/contents/faqs/update/{id}', [FaqController::class, 'update'])->name('admin.contents.faqs.update');
+    Route::get('/admin/contents/faqs/delete/{id}', [FaqController::class, 'destroy'])->name('admin.contents.faqs.delete');
+    Route::post('/admin/contents/faqs/upload', [FaqController::class, 'upload'])->name('admin.contents.faqs.upload');
 });

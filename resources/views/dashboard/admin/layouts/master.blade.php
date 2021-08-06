@@ -129,6 +129,18 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                      <a href="{{ route('admin.contents.refer') }}" class="nav-link @if(request()->path() == 'admin/contents/refer') active @endif">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Refer</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="{{ route('admin.contents.faqs') }}" class="nav-link @if(request()->path() == 'admin/contents/faqs') active @endif">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>FAQ</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
                       <a href="{{ route('admin.contents.webinar') }}" class="nav-link @if(request()->path() == 'admin/contents/webinar') active @endif">
                           <i class="far fa-circle nav-icon"></i>
                           <p>Bonus Webinar</p>
