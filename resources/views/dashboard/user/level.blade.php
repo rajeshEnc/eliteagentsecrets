@@ -15,21 +15,42 @@
 </div>
 <div class="awesome-vidz">
     <h1 class="text-center">{{ $level_details->title }} @if ($level_details->heading) - <span style="color: {{ $level_details->heading_color }};">{{ $level_details->heading }}</span> @endif</h1>
-
-    <ul>
+    <div id="accordion">
         @foreach ($level_contents as $content)
-            <li>
-                <div>
-                    <strong class="d-block">{{ $content->title }}</strong>
-                    <p>{{ $content->subtitle }}</p>
+        <div class="card">
+            <div class="card-header" id="heading{{ $loop->index }}">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse{{ $loop->index }}" aria-expanded="false" aria-controls="collapse{{ $loop->index }}">
+                        {{ $content->title }}
+                        <span class="d-block">{{ $content->subtitle }}</span>
+                        <span class="vdo-img"><img src="{{ asset('user/images/video-icon.png') }}" /></span>
+                    </button>
+                </h5>
+            </div>
+            <div id="collapse{{ $loop->index }}" class="collapse" aria-labelledby="heading{{ $loop->index }}" data-parent="#accordion">
+                <div class="card-body">
+                    <div class="video-wrap mb-3">
+                        @php
+                            $video_link = $content->video_link;
+                            $video_id = last(explode('.be/', $video_link));
+                        @endphp
+                        <iframe
+                            width="100%"
+                            height="300"
+                            src="https://www.youtube.com/embed/{{ $video_id }}"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
+                    {!! $content->content !!}
                 </div>
-
-                <span>
-                    <a href="#" data-toggle="modal" data-target="#myModal"><img src="{{ asset('user/images/video-icon.png') }}" /></a>
-                </span>
-            </li>
+            </div>
+        </div>
         @endforeach
-    </ul>
+    </div>
+
 </div>
 
 <!-- The Modal -->

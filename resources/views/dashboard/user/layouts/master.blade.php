@@ -86,10 +86,27 @@
                             </div>
                         </div>
                         <div class="col-lg-6 text-right">
-                            <a href="{{ route('user.logout') }}" onclick="event.preventDefault(); getElementById('logout-form').submit();">Logout</a>
-                            <form action="{{ route('user.logout') }}" method="post" class="d-none" id="logout-form">@csrf</form>
                             <div class="user-icon">
-                                <a href="#"><img src="{{ asset('user/images/user-icon.png') }}" /></a>
+                                <a href=""><img src="{{ asset('user/images/user-icon.png') }}" onclick="event.preventDefault(); toggleUserPopup();" /></a>
+                                <div class="user-popup dashboard_usr_popup" style="display: none;">
+                                    <div class="d-flex align-items-center">
+                                        <figure class="mb-0">
+                                            <img src="{{ asset('user/images/user-icon.png') }}" />
+                                        </figure>
+                                        <strong class="d-block">{{ $max_level->title }} <small class="d-block">Reffernals Made</small></strong>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <a href="{{ route('user.refer') }}">
+                                                <span><img src="{{ asset('user/images/cup-icon.png') }}" /></span> Refer People
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('user.logout') }}" class="logout-btn" onclick="event.preventDefault(); getElementById('logout-form').submit();">Logout</a>
+                                            <form action="{{ route('user.logout') }}" method="post" class="d-none" id="logout-form">@csrf</form>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -113,6 +130,10 @@
             $(document).ready(function(){
                 var panel_code = sessionStorage.setItem('panelValue', '');
             });
+
+            function toggleUserPopup() {
+                $('.dashboard_usr_popup').toggle();
+            }
         </script>
 
         @stack('scripts')

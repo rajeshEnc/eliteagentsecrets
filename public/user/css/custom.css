@@ -648,6 +648,133 @@ h2 {
 
 /*----for-nav-menu-show-hide-----*/
 
+#accordion .card-header {
+    background: none;
+    border-radius: 0;
+    padding: 0;
+}
+
+.card {
+    border: none;
+    border-radius: 0;
+}
+
+#accordion {
+    font-family: "JMH Typewriter";
+}
+
+#accordion .btn-link {
+    font-size: 20px;
+    color: #000;
+    font-weight: 700;
+    text-align: left;
+    width: 100%;
+    position: relative;
+    padding: 12px 15px;
+}
+
+#accordion .btn-link span {
+    font-size: 14px;
+    font-weight: normal;
+    color: #888888;
+}
+
+#accordion .btn-link:before {
+    position: absolute;
+    content: "";
+    background: url(../images/player-icon.png) no-repeat;
+    background-size: 100% 100%;
+    width: 25px;
+    height: 27px;
+    left: -20px;
+    top: 10px;
+}
+
+#accordion .card-body {
+    color: #888888;
+}
+#accordion .btn-link .vdo-img {
+    float: right;
+    margin-top: -42px;
+}
+
+.user-popup {
+    background: #fff;
+
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    margin-top: 15px;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    width: 330px;
+    text-align: left;
+}
+
+.user-popup .d-flex {
+    background: #000;
+    padding: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.user-popup .d-flex figure img {
+    width: 50px;
+    border-radius: 100%;
+    margin-right: 15px;
+}
+
+.user-popup .d-flex strong {
+    color: #fff;
+}
+
+.user-icon {
+    position: relative;
+}
+
+.user-popup ul {
+    padding: 0;
+}
+
+.user-popup ul li {
+    padding: 10px 20px;
+    margin: 5px 0;
+}
+
+.user-popup ul li a {
+    color: #000;
+}
+
+.user-popup ul li a span img {
+    width: 22px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.user-popup ul li .logout-btn {
+    padding: 5px 20px;
+    border: 1px solid #ddd;
+    color: #d91919;
+    border-radius: 30px;
+}
+
+.user-popup ul li .logout-btn:hover {
+    background: #d91919;
+    color: #fff;
+    border-color: #d91919;
+}
+
+.user-popup:before {
+    position: absolute;
+    content: "";
+    background: url(../images/top-arrow.png) no-repeat;
+    background-size: 100% 100%;
+    width: 23px;
+    height: 13px;
+    right: 12px;
+    top: -10px;
+}
+
 /*----26-07-21-----*/
 
 

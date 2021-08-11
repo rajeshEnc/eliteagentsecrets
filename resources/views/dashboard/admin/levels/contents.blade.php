@@ -55,7 +55,7 @@
                                 <td>{{ $content->title }}</td>
                                 <td>{{ $content->subtitle }}</td>
                                 <td>{{ $content->video_link }}</td>
-                                <td>{{ $content->content }}</td>
+                                <td>{!! $content->content !!}</td>
                                 <td>
                                     <div class="btn-group">
                                         <a href="{{ route('admin.level.edit', [$level_details->id, $content->id]) }}" class="text-primary"><i class="fas fa-edit"></i></a>

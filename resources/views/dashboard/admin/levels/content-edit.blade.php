@@ -80,3 +80,13 @@
       </section>
       <!-- /.content -->
 @endsection
+
+@push('scripts')
+<script src="//cdn.ckeditor.com/4.16.1/full/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('content', {
+        filebrowserUploadUrl: "{{ route('admin.contents.faqs.upload', ['_token' => csrf_token()]) }}",
+        filebrowserUploadMethod: 'form'
+    });
+</script>
+@endpush
